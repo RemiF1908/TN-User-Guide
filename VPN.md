@@ -82,7 +82,7 @@ Mettez votre `loginUL@etu` et votre MDP de l'UL et Cliquer sur `Login`
 
 ### Ligne de commande
 
-Les packets necessaire
+Les paquets nécessaires
 
 ```
 openconnect
@@ -131,7 +131,7 @@ sudo cat VPNTN.conf | sudo openconnect -u e1331u@etu --authgroup="Universite-de-
 
 
 
-Si vous voulez evité de devoir le taper à chaque fois
+Si vous voulez éviter de devoir le taper à chaque fois
 
 Crée un fichier VPNTN.conf puis mettez votre mots de passe dedans 
 

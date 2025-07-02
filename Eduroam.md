@@ -16,7 +16,7 @@
 
 ### Linux
 
-- Pour connection il faut :
+- Pour connexion il faut :
     - être connecté à internet avec autre chose (partage de connexion ou autre wifi ou connexion filaire par exemple)
     - Ne pas être connecté un VPN sinon risque de bannissement
 - Ensuite aller sur la page à https://cat.eduroam.org/
@@ -35,7 +35,7 @@ Cliquer ensuite sur Université de Lorraine
 
 Cliquer ensuite sur Eduroam
 
-Ceci devrait vous avoir télécharger un ficher "eduroam-linux-eduroam_et_Personnels_Univ-Lorraine.py"
+Ceci devrait vous avoir téléchargé un fichier "eduroam-linux-eduroam_et_Personnels_Univ-Lorraine.py"
 
 Aller dans votre dossier de téléchargement et lancer le fichier avec python
 
@@ -47,7 +47,7 @@ Sinon :
 
 Touche Windows puis terminal puis Enter
 
-Vous avez lancer un terminal
+Vous avez lancé un terminal
 
 ![Terminal](eduroam/eduroam_linux_5.png)
 
@@ -67,7 +67,7 @@ python3 ~/Downloads/eduroam-linux-eduroam_et_Personnels_Univ-Lorraine.py
 
 ![Terminal + Command](eduroam/eduroam_linux_6.png)
 
-Une fois la commande lancer en appuyant sur Enter Vous arrivez sur cette fenetre:
+Une fois la commande lancée en appuyant sur Enter Vous arrivez sur cette fenêtre:
 
 ![Eduroam setup Windows 1](eduroam/eduroam_linux_7.png)
 
@@ -79,9 +79,9 @@ Dans entrer votre identifiant utilisateur : "loginul"@etu.univ-lorraine.fr par e
 Dans entre le mot de passe : Votre Mot de passe de l'ul : Par exemple JaimeBeaucoupLesTresLongMotDePasseParceQueCEstSecurise ne mettez pas le même
 Dans Entrez à Nouveau votre mot de passe : Votre Mot de passe de l'ul : Par exemple JaimeBeaucoupLesTresLongMotDePasseParceQueCEstSecurise ne mettez pas le même
 
-Voilà vous pouvez maintenant vous connecté au wifi eduroam et la connexion devrait se faire tous seule.
+Voilà vous pouvez maintenant vous connecter au wifi eduroam et la connexion devrait se faire toute seule.
 
-Si vous n'arrivez pas à vous connecté cf [Problème Récurrents](#problème-récurrents)
+Si vous n'arrivez pas à vous connecter cf [Problème Récurrents](#problème-récurrents)
 
 ### Macos
 
@@ -96,7 +96,7 @@ Si vous n'arrivez pas à vous connecté cf [Problème Récurrents](#problème-r�
 ![Eduroam Mac 9](eduroam/eduroam_mac9.png)
 ![Eduroam Mac 10](eduroam/eduroam_mac10.png)
 
-Si vous n'arrivez pas à vous connecté cf [Problème Récurrents](#problème-récurrents)
+Si vous n'arrivez pas à vous connecter cf [Problème Récurrents](#problème-récurrents)
 
 ### Windows
 
@@ -115,7 +115,7 @@ Si vous n'arrivez pas à vous connecté cf [Problème Récurrents](#problème-r�
 
 ### Android
 
-Pour pouvoir vous connecté à Eduroam avec votre tel il faut:
+Pour pouvoir vous connecter à Eduroam avec votre tel il faut:
 - Aller sur le Play Store et chercher "geteduroam"
 - Téléchargé l'application
 - Lancer l'application et chercher "lorraine"
@@ -127,7 +127,7 @@ Pour pouvoir vous connecté à Eduroam avec votre tel il faut:
 - Dans Mot de passe entrer Votre Mot de passe de l'ul ; Par exemple JaimeBeaucoupLesTresLongMotDePasseParceQueCEstSecurise (ne mettez pas le même)
 <img src="eduroam/Eduraom_tel_2.png" alt="Eduraom_tel_2" width="400"/>
 
-- Vous pouvez maintenant ajouter le réseau et vous connecté à Eduroam sur votre téléphone
+- Vous pouvez maintenant ajouter le réseau et vous connecter à Eduroam sur votre téléphone
 
 <img src="eduroam/Eduraom_tel_3.png" alt="Eduraom_tel_3" width="400"/>
 

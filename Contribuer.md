@@ -1,6 +1,6 @@
 # Comment contribuer ?
 
-Si vous voyez une erreur ou si vous voulez remettre à jour ce guide :
+Si vous voyez une erreur ou si vous voulez mettre à jour ce guide :
 [https://github.com/CETEN-BDE/TN-User-Guide](https://github.com/CETEN-BDE/TN-User-Guide)
 
 Si vous ne savez pas comment contribuer à un projet open source :

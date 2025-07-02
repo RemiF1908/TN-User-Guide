@@ -39,7 +39,7 @@ Entrer votre adresse mail de Télécom Nancy (Exemple : baptiste.jullien@telecom
 
 ![Mail Gmail 3](mail/mail_gmail_3.png)
 
-Pour envoyé des mail avec ta *@telecomnancy.eu*
+Pour envoyer des mails avec ta *@telecomnancy.eu*
 
 ![Mail Gmail 4](mail/mail_gmail_4.png)
 
@@ -70,7 +70,7 @@ https://mail.univ-lorraine.fr/
 
 ### Redirection
 
-Mettez un redirection vers l'adresse mail de votre choix
+Mettez une redirection vers l'adresse mail de votre choix
 https://sesame.univ-lorraine.fr/account/redirection
 
 ### Connexion
