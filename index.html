@@ -442,14 +442,18 @@
 
         // Génération des liens PDF
         function generatePdfLinks() {
-            const pdfLinksContainer = document.getElementById('pdf-links');
+            const linksContainer = document.getElementById('pdf-links');
+
             linksContainer.innerHTML = documents.map(doc => {
                 // Assumes PDF file has the same name as the markdown file, but with .pdf extension
                 const pdfFileName = doc.file.replace('.md', '.pdf');
                 const pdfUrl = `pdfs/${pdfFileName}`; // Path matches the output of generate_pdf.sh
 
-                return `<a href="${pdfUrl}" class="pdf-link" target="_blank">${doc.title}</a>`;
+                return `<a href="${pdfUrl}" class="pdf-link" target="_blank">${pdfFileName}</a>`;
             }).join('');
+            linksContainer.innerHTML += `
+                <a href="pdfs/README.pdf" class="pdf-link" target="_blank">README.pdf</a>
+            `;
         }
 
         // Affichage de la page d'accueil
