@@ -373,42 +373,39 @@
 
     <script>
         // Configuration des documents
-        const documents = [
-            {
-                id: 'eduroam',
-                title: 'Configuration Eduroam',
-                description: 'Guide complet pour configurer le WiFi Eduroam sur tous les systèmes d\'exploitation',
-                file: 'Eduroam.md'
-            },
-            {
-                id: 'mail',
-                title: 'Configuration Email',
-                description: 'Instructions pour configurer votre email Télécom Nancy sur Gmail et Thunderbird',
-                file: 'Mail.md'
-            },
-            {
-                id: 'vpn',
-                title: 'Configuration VPN',
-                description: 'Guide pour configurer le VPN de l\'Université de Lorraine',
-                file: 'VPN.md'
-            },
-            {
-                id: 'contribuer',
-                title: 'Comment contribuer',
-                description: 'Instructions pour contribuer à ce guide et améliorer la documentation',
-                file: 'Contribuer.md'
-            }
-        ];
+        let documents = [];
 
         // État de l'application
         let currentDocument = null;
 
         // Initialisation
-        document.addEventListener('DOMContentLoaded', function() {
-            handleRouting();
-            generateDocumentCards();
-            generatePdfLinks();
-        });
+        document.addEventListener('DOMContentLoaded', initializeApp);
+
+        async function initializeApp() {
+            try {
+                // Fetch the configuration from the JSON file
+                const response = await fetch('config.json');
+                if (!response.ok) {
+                    throw new Error(`Failed to load config.json: ${response.statusText}`);
+                }
+                documents = await response.json();
+
+                // Now that we have the documents data, run the rest of the setup
+                handleRouting();
+                generateDocumentCards();
+                generatePdfLinks(); 
+
+            } catch (error) {
+                console.error('Error initializing the application:', error);
+                const mainContent = document.querySelector('.main-content');
+                mainContent.innerHTML = `
+                    <div class="error">
+                        <strong>Erreur critique:</strong> Impossible de charger la configuration des documents.
+                        <br>Veuillez rafraîchir la page ou contacter un administrateur.
+                    </div>
+                `;
+            }
+        }
 
         // Gestion du routing basé sur l'URL
         function handleRouting() {
@@ -565,12 +562,12 @@
         }
 
         // Gestion du bouton retour du navigateur
-        window.addEventListener('popstate', function(event) {
+        window.addEventListener('popstate', function (event) {
             handleRouting();
         });
 
         // Gestion des liens internes dans le markdown
-        document.addEventListener('click', function(e) {
+        document.addEventListener('click', function (e) {
             if (e.target.tagName === 'A' && e.target.href) {
                 const url = new URL(e.target.href);
 

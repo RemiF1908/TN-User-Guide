@@ -1,0 +1,26 @@
+[
+    {
+        "id": "eduroam",
+        "title": "Configuration Eduroam",
+        "description": "Guide complet pour configurer le WiFi Eduroam sur tous les systèmes d'exploitation",
+        "file": "Eduroam.md"
+    },
+    {
+        "id": "mail",
+        "title": "Configuration Email",
+        "description": "Instructions pour configurer votre email Télécom Nancy sur Gmail et Thunderbird",
+        "file": "Mail.md"
+    },
+    {
+        "id": "vpn",
+        "title": "Configuration VPN",
+        "description": "Guide pour configurer le VPN de l'Université de Lorraine",
+        "file": "VPN.md"
+    },
+    {
+        "id": "contribuer",
+        "title": "Comment contribuer",
+        "description": "Instructions pour contribuer à ce guide et améliorer la documentation",
+        "file": "Contribuer.md"
+    }
+]

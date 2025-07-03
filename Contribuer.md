@@ -11,15 +11,12 @@ Si vous ne savez pas comment contribuer à un projet open source :
 Pour ajouter un nouveau guide :
 
 1. Créez un nouveau fichier `.md` dans le repository
-2. Ajoutez une entrée dans le tableau `documents` du fichier `index.html`
-3. Modifiez le script `merge.sh` si vous voulez l'inclure dans le PDF complet
+2. Ajoutez une entrée dans le tableau du fichier `config.json`
 4. C'est tout ! Le site affichera automatiquement le nouveau guide
 
 ## Déploiement automatique
 
-Deux workflows GitHub Actions s'exécutent automatiquement :
+GitHub Actions s'exécutent automatiquement :
 
 1. **Deploy to GitHub Pages** : Déploie le site web à chaque push
 2. **Generate PDFs** : Génère les PDFs à chaque modification des fichiers Markdown
-
-Le système fonctionne avec deux workflows séparés pour optimiser les performances et éviter les conflits.

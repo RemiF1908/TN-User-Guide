@@ -62,10 +62,8 @@ Le site inclut un système de génération automatique de PDFs via GitHub Action
 
 - **PDFs individuels** : Chaque guide (Eduroam, Mail, VPN, Contribuer) est converti en PDF avec style CSS
 - **PDF complet** : Un PDF fusionné contenant tous les guides (Guide-Complet-TN.pdf)
-- **Rendu professionnel** : Utilise Chrome/Puppeteer pour un rendu identique au web
-- **Style cohérent** : PDFs stylés avec le même design que le site web
 - **Génération automatique** : Les PDFs sont régénérés à chaque modification des fichiers Markdown
-- **Téléchargement** : Les PDFs sont disponibles dans les GitHub Actions artifacts
+- **Téléchargement** : Les PDFs sont disponibles depuis le site web
 
 ### Comment accéder aux PDFs
 
@@ -74,4 +72,4 @@ Le site inclut un système de génération automatique de PDFs via GitHub Action
    - Guide-Complet-TN.pdf (document fusionné)
 2. Chaque PDF est téléchargeable séparément
 
-Les releases sont automatiquement créées à chaque modification des fichiers Markdown. Le système détecte automatiquement tous les fichiers `.md` et génère les PDFs correspondants.
+Le système détecte automatiquement tous les fichiers `.md` et génère les PDFs correspondants.
