@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -269,6 +270,7 @@
             border: 1px solid #bee5eb;
             border-radius: 8px;
             padding: 1.5rem;
+            margin-top: 2rem;
             margin-bottom: 2rem;
             text-align: center;
         }
@@ -306,28 +308,6 @@
             text-decoration: none;
         }
 
-        .pdf-section-bottom {
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid #e9ecef;
-            text-align: center;
-        }
-
-        .pdf-section-bottom p {
-            color: #666;
-            font-size: 0.95rem;
-        }
-
-        .pdf-section-bottom a {
-            color: #667eea;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .pdf-section-bottom a:hover {
-            text-decoration: underline;
-        }
-
         @media (max-width: 768px) {
             .container {
                 padding: 10px;
@@ -347,6 +327,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <header>
@@ -359,13 +340,15 @@
             <div id="home-view" class="home-view">
                 <h2>Choisissez un document à consulter</h2>
                 <p>Sélectionnez l'un des guides ci-dessous pour accéder aux instructions détaillées.</p>
-                
+
                 <div class="documents-grid" id="documents-grid">
                     <div class="loading">Chargement des documents...</div>
                 </div>
-                
-                <div class="pdf-section-bottom">
-                    <p>📄 <a href="https://github.com/CETEN-BDE/TN-User-Guide/releases" target="_blank">Télécharger tous les guides en PDF</a></p>
+
+                <div class="pdf-section">
+                    <h3>📄 Télécharger les documents en PDF</h3>
+                    <p>Vous pouvez télécharger les fichiers PDF disponibles ci-dessous :</p>
+                    <div class="pdf-links" id="pdf-links"></div>
                 </div>
             </div>
 
@@ -421,16 +404,17 @@
         let currentDocument = null;
 
         // Initialisation
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             handleRouting();
             generateDocumentCards();
+            generatePdfLinks();
         });
 
         // Gestion du routing basé sur l'URL
         function handleRouting() {
             const urlParams = new URLSearchParams(window.location.search);
             const doc = urlParams.get('doc');
-            
+
             if (doc) {
                 const document = documents.find(d => d.id === doc);
                 if (document) {
@@ -446,9 +430,9 @@
         // Génération des cartes de documents
         function generateDocumentCards() {
             const grid = document.getElementById('documents-grid');
-            
+
             grid.innerHTML = documents.map(doc => `
-                <div class="document-card" onclick="showDocument(${JSON.stringify(doc).replace(/"/g, '&quot;')})">
+                <div class="document-card" onclick="showDocument(${JSON.stringify(doc).replace(/"/g, '"')})">
                     <h3>${doc.title}</h3>
                     <p>${doc.description}</p>
                     <span class="read-more">Lire le guide →</span>
@@ -456,16 +440,27 @@
             `).join('');
         }
 
+        // Génération des liens PDF
+        function generatePdfLinks() {
+            const pdfLinksContainer = document.getElementById('pdf-links');
+            const pdfFolder = 'pdfs/';
+            const pdfFiles = ['Eduroam.pdf', 'Mail.pdf', 'VPN.pdf', 'Contribuer.pdf', 'README.pdf']; // README.pdf is the merged file
+
+            pdfLinksContainer.innerHTML = pdfFiles.map(file => `
+                <a href="${pdfFolder}${file}" class="pdf-link" download>${file}</a>
+            `).join('');
+        }
+
         // Affichage de la page d'accueil
         function showHome() {
             document.getElementById('home-view').style.display = 'block';
             document.getElementById('document-view').style.display = 'none';
-            
+
             // Mettre à jour l'URL
             const url = new URL(window.location);
             url.searchParams.delete('doc');
             window.history.pushState({}, '', url);
-            
+
             // Mettre à jour le titre
             document.title = 'Guide d\'utilisation TN';
             currentDocument = null;
@@ -474,21 +469,21 @@
         // Affichage d'un document
         async function showDocument(doc) {
             currentDocument = doc;
-            
+
             document.getElementById('home-view').style.display = 'none';
             document.getElementById('document-view').style.display = 'block';
-            
+
             // Mettre à jour l'URL
             const url = new URL(window.location);
             url.searchParams.set('doc', doc.id);
             window.history.pushState({}, '', url);
-            
+
             // Mettre à jour le titre
             document.title = `${doc.title} - Guide d'utilisation TN`;
-            
+
             // Afficher le lien de partage
             updateShareUrl();
-            
+
             // Charger le contenu markdown
             await loadMarkdownContent(doc.file);
         }
@@ -496,23 +491,23 @@
         // Chargement du contenu markdown
         async function loadMarkdownContent(filename) {
             const contentDiv = document.getElementById('markdown-content');
-            
+
             try {
                 contentDiv.innerHTML = '<div class="loading">Chargement du document...</div>';
-                
+
                 const response = await fetch(filename);
                 if (!response.ok) {
                     throw new Error(`Erreur HTTP: ${response.status}`);
                 }
-                
+
                 const markdownText = await response.text();
                 const htmlContent = marked.parse(markdownText);
-                
+
                 contentDiv.innerHTML = htmlContent;
-                
+
                 // Scroll vers le haut
                 window.scrollTo(0, 0);
-                
+
             } catch (error) {
                 console.error('Erreur lors du chargement du document:', error);
                 contentDiv.innerHTML = `
@@ -528,7 +523,7 @@
         function updateShareUrl() {
             const shareSection = document.getElementById('share-section');
             const shareUrl = document.getElementById('share-url');
-            
+
             if (currentDocument) {
                 const url = new URL(window.location);
                 shareUrl.value = url.toString();
@@ -543,21 +538,21 @@
             const shareUrl = document.getElementById('share-url');
             shareUrl.select();
             shareUrl.setSelectionRange(0, 99999); // Pour mobile
-            
+
             try {
                 document.execCommand('copy');
-                
+
                 // Feedback visuel
                 const copyBtn = document.querySelector('.copy-btn');
                 const originalText = copyBtn.textContent;
                 copyBtn.textContent = 'Copié !';
                 copyBtn.style.background = '#28a745';
-                
+
                 setTimeout(() => {
                     copyBtn.textContent = originalText;
                     copyBtn.style.background = '';
                 }, 2000);
-                
+
             } catch (err) {
                 console.error('Erreur lors de la copie:', err);
                 alert('Erreur lors de la copie. Veuillez copier l\'URL manuellement.');
@@ -565,15 +560,15 @@
         }
 
         // Gestion du bouton retour du navigateur
-        window.addEventListener('popstate', function(event) {
+        window.addEventListener('popstate', function (event) {
             handleRouting();
         });
 
         // Gestion des liens internes dans le markdown
-        document.addEventListener('click', function(e) {
+        document.addEventListener('click', function (e) {
             if (e.target.tagName === 'A' && e.target.href) {
                 const url = new URL(e.target.href);
-                
+
                 // Si c'est un lien vers un autre document de ce site
                 if (url.origin === window.location.origin && url.searchParams.has('doc')) {
                     e.preventDefault();
@@ -587,4 +582,5 @@
         });
     </script>
 </body>
+
 </html>
