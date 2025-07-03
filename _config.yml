@@ -1,0 +1,23 @@
+# Configuration GitHub Pages
+title: "Guide d'utilisation TN"
+description: "Documentation et tutoriels pour Télécom Nancy"
+
+# GitHub Pages settings
+plugins:
+  - jekyll-relative-links
+
+# Markdown settings
+markdown: kramdown
+highlighter: rouge
+
+# Relative links settings
+relative_links:
+  enabled: true
+  collections: false
+
+# Exclude files from Jekyll processing
+exclude:
+  - generate_pdf.sh
+  - merge.sh
+  - LICENSE
+  - docs/

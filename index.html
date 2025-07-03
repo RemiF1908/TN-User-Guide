@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide d'utilisation TN</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .main-content {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            min-height: 400px;
+        }
+
+        .home-view {
+            display: block;
+        }
+
+        .document-view {
+            display: none;
+        }
+
+        .documents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .document-card {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .document-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            border-color: #667eea;
+        }
+
+        .document-card h3 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .document-card p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .document-card .read-more {
+            color: #667eea;
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .nav-buttons {
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-block;
+            margin-right: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #5a6fd8;
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+
+        .markdown-content {
+            line-height: 1.8;
+        }
+
+        .markdown-content h1,
+        .markdown-content h2,
+        .markdown-content h3,
+        .markdown-content h4,
+        .markdown-content h5,
+        .markdown-content h6 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .markdown-content h1 {
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 0.5rem;
+        }
+
+        .markdown-content h2 {
+            border-bottom: 1px solid #e9ecef;
+            padding-bottom: 0.3rem;
+        }
+
+        .markdown-content p {
+            margin-bottom: 1rem;
+        }
+
+        .markdown-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin: 1rem 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .markdown-content pre {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 5px;
+            padding: 1rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+
+        .markdown-content code {
+            background: #f8f9fa;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+        }
+
+        .markdown-content pre code {
+            background: none;
+            padding: 0;
+        }
+
+        .markdown-content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 1rem 0;
+            padding-left: 1rem;
+            color: #666;
+        }
+
+        .markdown-content ul,
+        .markdown-content ol {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        .markdown-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .markdown-content a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .markdown-content a:hover {
+            text-decoration: underline;
+        }
+
+        .share-section {
+            background: #f8f9fa;
+            border-radius: 5px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            border: 1px solid #e9ecef;
+        }
+
+        .share-section h4 {
+            margin-bottom: 0.5rem;
+            color: #667eea;
+        }
+
+        .share-url {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            padding: 0.5rem;
+            width: 100%;
+            font-family: monospace;
+            margin-bottom: 0.5rem;
+        }
+
+        .copy-btn {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .copy-btn:hover {
+            background: #218838;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+        }
+
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 1rem;
+            border-radius: 5px;
+            margin: 1rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .documents-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .main-content {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Guide d'utilisation TN</h1>
+            <p class="subtitle">Documentation et tutoriels pour Télécom Nancy</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Vue d'accueil -->
+            <div id="home-view" class="home-view">
+                <h2>Choisissez un document à consulter</h2>
+                <p>Sélectionnez l'un des guides ci-dessous pour accéder aux instructions détaillées.</p>
+                
+                <div class="documents-grid" id="documents-grid">
+                    <div class="loading">Chargement des documents...</div>
+                </div>
+            </div>
+
+            <!-- Vue document -->
+            <div id="document-view" class="document-view">
+                <div class="nav-buttons">
+                    <button class="btn" onclick="showHome()">← Retour à l'accueil</button>
+                </div>
+
+                <div class="share-section" id="share-section" style="display: none;">
+                    <h4>Partager ce guide</h4>
+                    <input type="text" class="share-url" id="share-url" readonly>
+                    <button class="copy-btn" onclick="copyShareUrl()">Copier le lien</button>
+                </div>
+
+                <div class="markdown-content" id="markdown-content">
+                    <div class="loading">Chargement du document...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Configuration des documents
+        const documents = [
+            {
+                id: 'eduroam',
+                title: 'Configuration Eduroam',
+                description: 'Guide complet pour configurer le WiFi Eduroam sur tous les systèmes d\'exploitation',
+                file: 'Eduroam.md'
+            },
+            {
+                id: 'mail',
+                title: 'Configuration Email',
+                description: 'Instructions pour configurer votre email Télécom Nancy sur Gmail et Thunderbird',
+                file: 'Mail.md'
+            },
+            {
+                id: 'vpn',
+                title: 'Configuration VPN',
+                description: 'Guide pour configurer le VPN de l\'Université de Lorraine',
+                file: 'VPN.md'
+            },
+            {
+                id: 'contribuer',
+                title: 'Comment contribuer',
+                description: 'Instructions pour contribuer à ce guide et améliorer la documentation',
+                file: 'Contribuer.md'
+            }
+        ];
+
+        // État de l'application
+        let currentDocument = null;
+
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', function() {
+            handleRouting();
+            generateDocumentCards();
+        });
+
+        // Gestion du routing basé sur l'URL
+        function handleRouting() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const doc = urlParams.get('doc');
+            
+            if (doc) {
+                const document = documents.find(d => d.id === doc);
+                if (document) {
+                    showDocument(document);
+                } else {
+                    showHome();
+                }
+            } else {
+                showHome();
+            }
+        }
+
+        // Génération des cartes de documents
+        function generateDocumentCards() {
+            const grid = document.getElementById('documents-grid');
+            
+            grid.innerHTML = documents.map(doc => `
+                <div class="document-card" onclick="showDocument(${JSON.stringify(doc).replace(/"/g, '&quot;')})">
+                    <h3>${doc.title}</h3>
+                    <p>${doc.description}</p>
+                    <span class="read-more">Lire le guide →</span>
+                </div>
+            `).join('');
+        }
+
+        // Affichage de la page d'accueil
+        function showHome() {
+            document.getElementById('home-view').style.display = 'block';
+            document.getElementById('document-view').style.display = 'none';
+            
+            // Mettre à jour l'URL
+            const url = new URL(window.location);
+            url.searchParams.delete('doc');
+            window.history.pushState({}, '', url);
+            
+            // Mettre à jour le titre
+            document.title = 'Guide d\'utilisation TN';
+            currentDocument = null;
+        }
+
+        // Affichage d'un document
+        async function showDocument(doc) {
+            currentDocument = doc;
+            
+            document.getElementById('home-view').style.display = 'none';
+            document.getElementById('document-view').style.display = 'block';
+            
+            // Mettre à jour l'URL
+            const url = new URL(window.location);
+            url.searchParams.set('doc', doc.id);
+            window.history.pushState({}, '', url);
+            
+            // Mettre à jour le titre
+            document.title = `${doc.title} - Guide d'utilisation TN`;
+            
+            // Afficher le lien de partage
+            updateShareUrl();
+            
+            // Charger le contenu markdown
+            await loadMarkdownContent(doc.file);
+        }
+
+        // Chargement du contenu markdown
+        async function loadMarkdownContent(filename) {
+            const contentDiv = document.getElementById('markdown-content');
+            
+            try {
+                contentDiv.innerHTML = '<div class="loading">Chargement du document...</div>';
+                
+                const response = await fetch(filename);
+                if (!response.ok) {
+                    throw new Error(`Erreur HTTP: ${response.status}`);
+                }
+                
+                const markdownText = await response.text();
+                const htmlContent = marked.parse(markdownText);
+                
+                contentDiv.innerHTML = htmlContent;
+                
+                // Scroll vers le haut
+                window.scrollTo(0, 0);
+                
+            } catch (error) {
+                console.error('Erreur lors du chargement du document:', error);
+                contentDiv.innerHTML = `
+                    <div class="error">
+                        <strong>Erreur:</strong> Impossible de charger le document "${filename}".
+                        <br>Veuillez vérifier que le fichier existe et réessayer.
+                    </div>
+                `;
+            }
+        }
+
+        // Mise à jour de l'URL de partage
+        function updateShareUrl() {
+            const shareSection = document.getElementById('share-section');
+            const shareUrl = document.getElementById('share-url');
+            
+            if (currentDocument) {
+                const url = new URL(window.location);
+                shareUrl.value = url.toString();
+                shareSection.style.display = 'block';
+            } else {
+                shareSection.style.display = 'none';
+            }
+        }
+
+        // Copie de l'URL de partage
+        function copyShareUrl() {
+            const shareUrl = document.getElementById('share-url');
+            shareUrl.select();
+            shareUrl.setSelectionRange(0, 99999); // Pour mobile
+            
+            try {
+                document.execCommand('copy');
+                
+                // Feedback visuel
+                const copyBtn = document.querySelector('.copy-btn');
+                const originalText = copyBtn.textContent;
+                copyBtn.textContent = 'Copié !';
+                copyBtn.style.background = '#28a745';
+                
+                setTimeout(() => {
+                    copyBtn.textContent = originalText;
+                    copyBtn.style.background = '';
+                }, 2000);
+                
+            } catch (err) {
+                console.error('Erreur lors de la copie:', err);
+                alert('Erreur lors de la copie. Veuillez copier l\'URL manuellement.');
+            }
+        }
+
+        // Gestion du bouton retour du navigateur
+        window.addEventListener('popstate', function(event) {
+            handleRouting();
+        });
+
+        // Gestion des liens internes dans le markdown
+        document.addEventListener('click', function(e) {
+            if (e.target.tagName === 'A' && e.target.href) {
+                const url = new URL(e.target.href);
+                
+                // Si c'est un lien vers un autre document de ce site
+                if (url.origin === window.location.origin && url.searchParams.has('doc')) {
+                    e.preventDefault();
+                    const docId = url.searchParams.get('doc');
+                    const doc = documents.find(d => d.id === docId);
+                    if (doc) {
+                        showDocument(doc);
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
