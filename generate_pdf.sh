@@ -8,7 +8,7 @@ mkdir -p pdfs
 for file in *.md; do
   [ -f "$file" ] || continue  # skip if no .md files
   output="pdfs/${file%.md}.pdf"
-  pandoc "$file" -o "$output"
+  pandoc "$file" --pdf-engine=wkhtmltopdf -o "$output"
 done
 
 echo "🎉 Génération terminée !"
