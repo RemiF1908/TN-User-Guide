@@ -21,3 +21,7 @@ exclude:
   - merge.sh
   - LICENSE
   - docs/
+  - pdf-style.css
+  - .md2pdf.js
+  - pdfs/
+  - node_modules/

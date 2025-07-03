@@ -1,0 +1,56 @@
+name: Generate PDFs
+
+on:
+  push:
+    branches: [ main, master ]
+    paths:
+      - '*.md'
+      - 'merge.sh'
+      - 'generate_pdf.sh'
+  workflow_dispatch:
+
+jobs:
+  generate-pdfs:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      
+      - name: Install md-to-pdf
+        run: npm install -g md-to-pdf
+      
+      - name: Make scripts executable
+        run: |
+          chmod +x merge.sh
+          chmod +x generate_pdf.sh
+      
+      - name: Merge markdown files
+        run: ./merge.sh
+      
+      - name: Generate PDFs
+        run: ./generate_pdf.sh
+      
+      - name: Upload PDF artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: pdf-guides
+          path: pdfs/
+          retention-days: 90
+      
+      - name: Commit generated README.md
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          
+          # Add README.md if it has changes
+          if ! git diff --quiet README.md; then
+            git add README.md
+            git commit -m "Auto-update README.md from merge script [skip ci]"
+            git push
+          fi

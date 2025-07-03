@@ -56,14 +56,20 @@ Le site lit automatiquement les fichiers Markdown du repository. Pour ajouter ou
 
 Le principe est simple : **une seule source de vérité**. Tous les contenus sont dans les fichiers Markdown, et le site web les affiche dynamiquement.
 
-## 🔧 Maintenance
+## 📄 Génération automatique de PDFs
 
-Pour ajouter un nouveau guide :
+Le site inclut un système de génération automatique de PDFs via GitHub Actions utilisant **md-to-pdf** :
 
-1. Créez un nouveau fichier `.md` dans le repository
-2. Ajoutez une entrée dans le tableau `documents` du fichier `index.html`
-3. C'est tout ! Le site affichera automatiquement le nouveau guide
+- **PDFs individuels** : Chaque guide (Eduroam, Mail, VPN, Contribuer) est converti en PDF avec style CSS
+- **PDF complet** : Un PDF fusionné contenant tous les guides (Guide-Complet-TN.pdf)
+- **Rendu professionnel** : Utilise Chrome/Puppeteer pour un rendu identique au web
+- **Style cohérent** : PDFs stylés avec le même design que le site web
+- **Génération automatique** : Les PDFs sont régénérés à chaque modification des fichiers Markdown
+- **Téléchargement** : Les PDFs sont disponibles dans les GitHub Actions artifacts
 
-## 🚀 Déploiement automatique
+### Comment accéder aux PDFs
 
-Le workflow GitHub Actions se déclenche automatiquement à chaque push sur `main` ou `master` et déploie le site mis à jour.
+1. Allez sur la page GitHub Actions du repository
+2. Sélectionnez le workflow "Generate PDFs" le plus récent
+3. Téléchargez l'artifact "pdf-guides"
+4. Vous obtiendrez un ZIP contenant tous les PDFs

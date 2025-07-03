@@ -264,6 +264,48 @@
             margin: 1rem 0;
         }
 
+        .pdf-section {
+            background: #e8f4fd;
+            border: 1px solid #bee5eb;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .pdf-section h3 {
+            color: #0c5460;
+            margin-bottom: 0.5rem;
+        }
+
+        .pdf-section p {
+            color: #0c5460;
+            margin-bottom: 1rem;
+        }
+
+        .pdf-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .pdf-link {
+            background: #17a2b8;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+        }
+
+        .pdf-link:hover {
+            background: #138496;
+            text-decoration: none;
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 10px;
@@ -295,6 +337,16 @@
             <div id="home-view" class="home-view">
                 <h2>Choisissez un document à consulter</h2>
                 <p>Sélectionnez l'un des guides ci-dessous pour accéder aux instructions détaillées.</p>
+                
+                <div class="pdf-section">
+                    <h3>📄 Téléchargements PDF</h3>
+                    <p>Les versions PDF sont générées automatiquement à chaque mise à jour :</p>
+                    <div class="pdf-links">
+                        <a href="https://github.com/CETEN-BDE/TN-User-Guide/actions" class="pdf-link" target="_blank">
+                            📥 Télécharger les PDFs depuis GitHub Actions
+                        </a>
+                    </div>
+                </div>
                 
                 <div class="documents-grid" id="documents-grid">
                     <div class="loading">Chargement des documents...</div>
