@@ -24,6 +24,11 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y pandoc wkhtmltopdf
+        
+      - name: Merge markdown files
+        run: |
+          chmod +x ./merge.sh
+          ./merge.sh
 
       - name: Generate PDF files
         run: |
