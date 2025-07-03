@@ -69,7 +69,10 @@ Le site inclut un système de génération automatique de PDFs via GitHub Action
 
 ### Comment accéder aux PDFs
 
-1. Allez sur la page GitHub Actions du repository
-2. Sélectionnez le workflow "Generate PDFs" le plus récent
-3. Téléchargez l'artifact "pdf-guides"
-4. Vous obtiendrez un ZIP contenant tous les PDFs
+1. Allez sur la page **Releases** du repository GitHub
+2. Téléchargez directement les PDFs individuels depuis la release la plus récente :
+   - Eduroam.pdf, Mail.pdf, VPN.pdf, Contribuer.pdf
+   - Guide-Complet-TN.pdf (document fusionné)
+3. Chaque PDF est téléchargeable séparément
+
+Les releases sont automatiquement créées à chaque modification des fichiers Markdown. Le système détecte automatiquement tous les fichiers `.md` et génère les PDFs correspondants.

@@ -36,12 +36,47 @@ jobs:
       - name: Generate PDFs
         run: ./generate_pdf.sh
       
-      - name: Upload PDF artifacts
-        uses: actions/upload-artifact@v4
+      - name: Get current date
+        id: date
+        run: echo "date=$(date +'%Y-%m-%d-%H%M')" >> $GITHUB_OUTPUT
+      
+      - name: List generated PDFs
+        run: |
+          echo "PDFs générés:"
+          ls -la pdfs/
+          echo "::set-output name=pdf_list::$(ls pdfs/*.pdf | tr '\n' ' ')"
+        id: pdf_files
+      
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          name: pdf-guides
-          path: pdfs/
-          retention-days: 90
+          tag_name: pdfs-${{ steps.date.outputs.date }}
+          release_name: "Guides PDF - ${{ steps.date.outputs.date }}"
+          body: |
+            📄 **Guides PDF mis à jour automatiquement**
+            
+            Téléchargez directement les PDFs individuels ci-dessous :
+            
+            🚀 Généré automatiquement le ${{ steps.date.outputs.date }}
+          draft: false
+          prerelease: false
+      
+      - name: Upload PDF Assets
+        run: |
+          upload_url="${{ steps.create_release.outputs.upload_url }}"
+          for pdf_file in pdfs/*.pdf; do
+            if [ -f "$pdf_file" ]; then
+              filename=$(basename "$pdf_file")
+              echo "Upload de $filename..."
+              curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+                   -H "Content-Type: application/pdf" \
+                   --data-binary @"$pdf_file" \
+                   "${upload_url%\{*}?name=$filename&label=$filename"
+            fi
+          done
       
       - name: Commit generated README.md
         run: |

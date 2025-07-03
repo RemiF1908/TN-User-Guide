@@ -306,6 +306,28 @@
             text-decoration: none;
         }
 
+        .pdf-section-bottom {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e9ecef;
+            text-align: center;
+        }
+
+        .pdf-section-bottom p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .pdf-section-bottom a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .pdf-section-bottom a:hover {
+            text-decoration: underline;
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 10px;
@@ -338,18 +360,12 @@
                 <h2>Choisissez un document à consulter</h2>
                 <p>Sélectionnez l'un des guides ci-dessous pour accéder aux instructions détaillées.</p>
                 
-                <div class="pdf-section">
-                    <h3>📄 Téléchargements PDF</h3>
-                    <p>Les versions PDF sont générées automatiquement à chaque mise à jour :</p>
-                    <div class="pdf-links">
-                        <a href="https://github.com/CETEN-BDE/TN-User-Guide/actions" class="pdf-link" target="_blank">
-                            📥 Télécharger les PDFs depuis GitHub Actions
-                        </a>
-                    </div>
-                </div>
-                
                 <div class="documents-grid" id="documents-grid">
                     <div class="loading">Chargement des documents...</div>
+                </div>
+                
+                <div class="pdf-section-bottom">
+                    <p>📄 <a href="https://github.com/CETEN-BDE/TN-User-Guide/releases" target="_blank">Télécharger tous les guides en PDF</a></p>
                 </div>
             </div>
 
