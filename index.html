@@ -404,7 +404,7 @@
         let currentDocument = null;
 
         // Initialisation
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             handleRouting();
             generateDocumentCards();
             generatePdfLinks();
@@ -432,7 +432,7 @@
             const grid = document.getElementById('documents-grid');
 
             grid.innerHTML = documents.map(doc => `
-                <div class="document-card" onclick="showDocument(${JSON.stringify(doc).replace(/"/g, '"')})">
+                <div class="document-card" onclick="showDocument(${JSON.stringify(doc).replace(/"/g, '&quot;')})">
                     <h3>${doc.title}</h3>
                     <p>${doc.description}</p>
                     <span class="read-more">Lire le guide →</span>
@@ -560,12 +560,12 @@
         }
 
         // Gestion du bouton retour du navigateur
-        window.addEventListener('popstate', function (event) {
+        window.addEventListener('popstate', function(event) {
             handleRouting();
         });
 
         // Gestion des liens internes dans le markdown
-        document.addEventListener('click', function (e) {
+        document.addEventListener('click', function(e) {
             if (e.target.tagName === 'A' && e.target.href) {
                 const url = new URL(e.target.href);
 
