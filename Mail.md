@@ -17,21 +17,21 @@ MotDePasseDeL'UL
 
 #### Gmail
 
-Aller dans les paramètres de gmail
+Allez dans les paramètres de gmail
 
 ![Mail Gmail 8](mail/mail_gmail_8.png)
 
 ![Mail Gmail 9](mail/mail_gmail_9.png)
 
-Aller dans l'onglet *Comptes et importation* dans la section *Consulter d'autres comptes de messagerie*
+Allez dans l'onglet *Comptes et importation* dans la section *Consulter d'autres comptes de messagerie*
 
 ![Mail Gmail 6](mail/mail_gmail_6.png)
 
-Cliquer sur *Ajouter un compte de messagerie*
+Cliquez sur *Ajouter un compte de messagerie*
 
 ![Mail Gmail 7](mail/mail_gmail_7.png)
 
-Entrer votre adresse mail de Télécom Nancy (Exemple : baptiste.jullien@telecomnancy.eu)
+Entrez votre adresse mail de Télécom Nancy (Exemple : baptiste.jullien@telecomnancy.eu)
 
 ![Mail Gmail 1](mail/mail_gmail_1.png)
 
