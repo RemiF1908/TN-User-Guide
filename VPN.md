@@ -123,7 +123,7 @@ sudo zypper install openconnect
 }
 ```
 
-Remplacer e1331u par votre loginUL puis taper votre mots de passe de l'UL
+Remplacez e1331u par votre loginUL puis tapez votre mots de passe de l'UL
 
 ```bash
 sudo cat VPNTN.conf | sudo openconnect -u e1331u@etu --authgroup="Universite-de-Lorraine" vpn.univ-lorraine.fr --passwd-on-stdin
@@ -136,7 +136,7 @@ Si vous voulez éviter de devoir le taper à chaque fois
 Crée un fichier VPNTN.conf puis mettez votre mots de passe dedans 
 
 /!\ Attention /!\ Ceci est potentiellement dangereux si votre disque n'est pas chiffré puisque on peut lire votre disque depuis un clé bootable par exemple. A vous de voir si vous avez peur des attaque physique bien que très improbable (vol ordinateur, etc ...).
-Penser bien au permission d'accès à ce fichier doivent être administrateur
+Pensez bien aux permissions d'accès à ce fichier qui  doivent être administrateur
 
 Voici les commandes pour le faire
 ```bash
@@ -149,4 +149,4 @@ chmod 600 VPNTN.conf
 sudo cat VPNTN.conf | sudo openconnect -u e1331u@etu --authgroup="Universite-de-Lorraine" vpn.univ-lorraine.fr --passwd-on-stdin
 ```
 
-Remplacer e1331u par votre loginUL puis taper votre mots de passe de l'UL
+Remplacez e1331u par votre loginUL puis tapez votre mot de passe de l'UL
