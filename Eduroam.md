@@ -6,11 +6,11 @@
 
 ## OS Selection
 
-[Linux](#linux)
-[Macos](#macos)
-[Windows](#windows)
-[Android](#android)
-[iOS](#ios)
+- [Linux](#linux)
+- [Macos](#macos)
+- [Windows](#windows)
+- [Android](#android)
+- [iOS](#ios)
 
 ## Eduroam Version PC
 
