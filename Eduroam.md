@@ -82,7 +82,7 @@ Dans Entrez à Nouveau votre mot de passe : Votre Mot de passe de l'ul : Par exe
 
 Voilà vous pouvez maintenant vous connecter au wifi eduroam et la connexion devrait se faire toute seule.
 
-Si vous n'arrivez pas à vous connecter cf [Problème Récurrents](#problème-récurrents)
+Si vous n'arrivez pas à vous connecter cf [Problème Récurrents](#problèmes-récurrents)
 
 ### Macos
 
@@ -97,7 +97,7 @@ Si vous n'arrivez pas à vous connecter cf [Problème Récurrents](#problème-r�
 ![Eduroam Mac 9](eduroam/eduroam_mac9.png)
 ![Eduroam Mac 10](eduroam/eduroam_mac10.png)
 
-Si vous n'arrivez pas à vous connecter cf [Problème Récurrents](#problème-récurrents)
+Si vous n'arrivez pas à vous connecter cf [Problème Récurrents](#problèmes-récurrents)
 
 ### Windows
 
@@ -110,7 +110,7 @@ Dans entrez le mot de passe : Votre Mot de passe de l'ul : Par exemple JaimeBeau
 
 Voilà vous pouvez maintenant vous connecter au wifi eduroam et la connexion devrait se faire toute seule.
 
-Si vous n'arrivez pas à vous connecter cf [Problème Récurrents](#problème-récurrents)
+Si vous n'arrivez pas à vous connecter cf [Problème Récurrents](#problèmes-récurrents)
 
 ## Eduroam Version Tel
 
@@ -132,7 +132,7 @@ Pour pouvoir vous connecter à Eduroam avec votre tel il faut:
 
 <img src="eduroam/Eduraom_tel_3.png" alt="Eduraom_tel_3" width="400"/>
 
-Si vous n'arrivez pas à vous connecter cf [Problème Récurrents](#problème-récurrents)
+Si vous n'arrivez pas à vous connecter cf [Problème Récurrents](#problèmes-récurrents)
 
 ### iOS
 
@@ -150,7 +150,7 @@ Si vous n'arrivez pas à vous connecter cf [Problème Récurrents](#problème-r�
 
 - Vous êtes maintenant connecté à eduroam
 
-Si vous n'arrivez pas à vous connecter cf [Problème Récurrents](#problème-récurrents)
+Si vous n'arrivez pas à vous connecter cf [Problème Récurrents](#problèmes-récurrents)
 
 ### Configuration Manuel
 
@@ -205,7 +205,7 @@ pr1Ggfl8g2jpe4+9LYeO4coBq54z+HKxsXDdqZMC5+l+7ID1AgA=
 -----END CERTIFICATE-----
 ```
 
-Si vous n'arrivez pas à vous connecter cf [Problème Récurrents](#problème-récurrents)
+Si vous n'arrivez pas à vous connecter cf [Problème Récurrents](#problèmes-récurrents)
 
 #### Lien utile
 

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guide d'utilisation TN</title>
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked@5.1.2/lib/marked.umd.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -378,7 +378,21 @@
         // État de l'application
         let currentDocument = null;
 
-        // Initialisation
+        // ====================================================================
+        // === CONFIGURATION GLOBALE DE MARKED.JS (LA CORRECTION EST ICI) ===
+        // ====================================================================
+        // On configure marked une seule fois pour toute l'application.
+        // - gfm: true -> Active le mode "GitHub Flavored Markdown" (tableaux, etc.) et la création d'ID pour les titres.
+        // - mangle: false -> Empêche marked de modifier les ID (parfois il ajoute des nombres aléatoires).
+        marked.setOptions({
+            gfm: true,
+            mangle: false,
+            headerIds: true
+        });
+        // ====================================================================
+
+
+        // Initialisation de l'application
         document.addEventListener('DOMContentLoaded', initializeApp);
 
         async function initializeApp() {
@@ -413,9 +427,9 @@
             const doc = urlParams.get('doc');
 
             if (doc) {
-                const document = documents.find(d => d.id === doc);
-                if (document) {
-                    showDocument(document);
+                const documentToLoad = documents.find(d => d.id === doc);
+                if (documentToLoad) {
+                    showDocument(documentToLoad);
                 } else {
                     showHome();
                 }
@@ -427,7 +441,6 @@
         // Génération des cartes de documents
         function generateDocumentCards() {
             const grid = document.getElementById('documents-grid');
-
             grid.innerHTML = documents.map(doc => `
                 <div class="document-card" onclick="showDocument(${JSON.stringify(doc).replace(/"/g, '&quot;')})">
                     <h3>${doc.title}</h3>
@@ -440,30 +453,24 @@
         // Génération des liens PDF
         function generatePdfLinks() {
             const linksContainer = document.getElementById('pdf-links');
-
-            linksContainer.innerHTML = documents.map(doc => {
-                // Assumes PDF file has the same name as the markdown file, but with .pdf extension
+            let pdfHtml = documents.map(doc => {
                 const pdfFileName = doc.file.replace('.md', '.pdf');
-                const pdfUrl = `pdfs/${pdfFileName}`; // Path matches the output of generate_pdf.sh
-
+                const pdfUrl = `pdfs/${pdfFileName}`;
                 return `<a href="${pdfUrl}" class="pdf-link" target="_blank">${pdfFileName}</a>`;
             }).join('');
-            linksContainer.innerHTML += `
-                <a href="pdfs/Guide-Complet-TN.pdf" class="pdf-link" target="_blank">Guide-Complet-TN.pdf</a>
-            `;
+            pdfHtml += `
+                        <a href="pdfs/Guide-Complet-TN.pdf" class="pdf-link" target="_blank">Guide-Complet-TN.pdf</a>
+                    `;
+            linksContainer.innerHTML = pdfHtml;
         }
 
         // Affichage de la page d'accueil
         function showHome() {
             document.getElementById('home-view').style.display = 'block';
             document.getElementById('document-view').style.display = 'none';
-
-            // Mettre à jour l'URL
             const url = new URL(window.location);
             url.searchParams.delete('doc');
             window.history.pushState({}, '', url);
-
-            // Mettre à jour le titre
             document.title = 'Guide d\'utilisation TN';
             currentDocument = null;
         }
@@ -471,43 +478,31 @@
         // Affichage d'un document
         async function showDocument(doc) {
             currentDocument = doc;
-
             document.getElementById('home-view').style.display = 'none';
             document.getElementById('document-view').style.display = 'block';
-
-            // Mettre à jour l'URL
             const url = new URL(window.location);
             url.searchParams.set('doc', doc.id);
             window.history.pushState({}, '', url);
-
-            // Mettre à jour le titre
             document.title = `${doc.title} - Guide d'utilisation TN`;
-
-            // Afficher le lien de partage
             updateShareUrl();
-
-            // Charger le contenu markdown
             await loadMarkdownContent(doc.file);
         }
 
-        // Chargement du contenu markdown
+        // Chargement du contenu markdown (maintenant très simple)
         async function loadMarkdownContent(filename) {
             const contentDiv = document.getElementById('markdown-content');
-
             try {
                 contentDiv.innerHTML = '<div class="loading">Chargement du document...</div>';
-
                 const response = await fetch(filename);
                 if (!response.ok) {
                     throw new Error(`Erreur HTTP: ${response.status}`);
                 }
-
                 const markdownText = await response.text();
-                const htmlContent = marked.parse(markdownText, { headerIds: true });
+
+                // On utilise simplement marked.parse(), les options sont déjà définies globalement.
+                const htmlContent = marked.parse(markdownText);
 
                 contentDiv.innerHTML = htmlContent;
-
-                // Scroll vers le haut
                 window.scrollTo(0, 0);
 
             } catch (error) {
@@ -524,11 +519,9 @@
         // Mise à jour de l'URL de partage
         function updateShareUrl() {
             const shareSection = document.getElementById('share-section');
-            const shareUrl = document.getElementById('share-url');
-
+            const shareUrlInput = document.getElementById('share-url');
             if (currentDocument) {
-                const url = new URL(window.location);
-                shareUrl.value = url.toString();
+                shareUrlInput.value = window.location.href;
                 shareSection.style.display = 'block';
             } else {
                 shareSection.style.display = 'none';
@@ -537,48 +530,55 @@
 
         // Copie de l'URL de partage
         function copyShareUrl() {
-            const shareUrl = document.getElementById('share-url');
-            shareUrl.select();
-            shareUrl.setSelectionRange(0, 99999); // Pour mobile
-
+            const shareUrlInput = document.getElementById('share-url');
+            shareUrlInput.select();
+            shareUrlInput.setSelectionRange(0, 99999);
             try {
                 document.execCommand('copy');
-
-                // Feedback visuel
                 const copyBtn = document.querySelector('.copy-btn');
                 const originalText = copyBtn.textContent;
                 copyBtn.textContent = 'Copié !';
-                copyBtn.style.background = '#28a745';
-
-                setTimeout(() => {
-                    copyBtn.textContent = originalText;
-                    copyBtn.style.background = '';
-                }, 2000);
-
+                setTimeout(() => { copyBtn.textContent = originalText; }, 2000);
             } catch (err) {
-                console.error('Erreur lors de la copie:', err);
-                alert('Erreur lors de la copie. Veuillez copier l\'URL manuellement.');
+                alert('Erreur lors de la copie.');
             }
         }
 
         // Gestion du bouton retour du navigateur
-        window.addEventListener('popstate', function (event) {
-            handleRouting();
-        });
+        window.addEventListener('popstate', handleRouting);
 
-        // Gestion des liens internes dans le markdown
+        // Gestion des clics sur les liens
         document.addEventListener('click', function (e) {
-            if (e.target.tagName === 'A' && e.target.href) {
-                const url = new URL(e.target.href);
+            const link = e.target.closest('.markdown-content a');
+            if (!link || !link.href) return;
 
-                // Si c'est un lien vers un autre document de ce site
-                if (url.origin === window.location.origin && url.searchParams.has('doc')) {
-                    e.preventDefault();
-                    const docId = url.searchParams.get('doc');
-                    const doc = documents.find(d => d.id === docId);
-                    if (doc) {
-                        showDocument(doc);
-                    }
+            const url = new URL(link.href, window.location.href);
+
+            // CAS 1: C'est une ancre interne
+            if (url.origin === window.location.origin && url.pathname === window.location.pathname && url.search === window.location.search && url.hash) {
+                e.preventDefault();
+                const targetId = decodeURIComponent(url.hash.substring(1));
+
+                // MARKED.JS génère des ID comme "problèmes-récurrents" à partir de "Problèmes Récurrents"
+                // On doit faire pareil pour trouver l'élément
+                const targetElement = document.getElementById(targetId);
+
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    history.pushState(null, null, url.hash);
+                }
+                return;
+            }
+
+            // CAS 2: C'est un lien vers un autre document
+            if (url.origin === window.location.origin && url.searchParams.has('doc')) {
+                e.preventDefault();
+                const docId = url.searchParams.get('doc');
+                if (currentDocument && currentDocument.id === docId) {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    const docToLoad = documents.find(d => d.id === docId);
+                    if (docToLoad) showDocument(docToLoad);
                 }
             }
         });
