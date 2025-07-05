@@ -35,13 +35,13 @@ Cliquez ensuite sur Université de Lorraine
 
 Cliquez ensuite sur Eduroam
 
-Ceci devrait vous avoir téléchargé un fichier "eduroam-linux-eduroam_et_Personnels_Univ-Lorraine.py"
+Ceci devrait vous avoir téléchargé un fichier `eduroam-linux-eduroam_et_Personnels_Univ-Lorraine.py`
 
 Allez dans votre dossier de téléchargement et lancez le fichier avec python
 
 Sur ubuntu:
 
-Lancez un terminal avec la racourci CTRL + ALT + T
+Lancez un terminal avec la racourci `CTRL + ALT + T`
 
 Sinon :
 
@@ -76,9 +76,9 @@ Cliquez sur **ok** puis sur **oui**
 
 ![Eduroam setup Windows 2](eduroam/eduroam_linux_8.png)
 
-Dans entrez votre identifiant utilisateur : "loginul"@etu.univ-lorraine.fr par exemple e1331u@etu.univ-lorraine.fr
-Dans entrez le mot de passe : Votre Mot de passe de l'ul : Par exemple JaimeBeaucoupLesTresLongMotDePasseParceQueCEstSecurise ne mettez pas le même.
-Dans Entrez à Nouveau votre mot de passe : Votre Mot de passe de l'ul : Par exemple JaimeBeaucoupLesTresLongMotDePasseParceQueCEstSecurise ne mettez pas le même.
+Dans entrez votre identifiant utilisateur : `"loginul"@etu.univ-lorraine.fr` par exemple `e1331u@etu.univ-lorraine.fr`
+Dans entrez le mot de passe : Votre Mot de passe de l'ul : Par exemple `JaimeBeaucoupLesTresLongMotDePasseParceQueCEstSecurise` ne mettez pas le même.
+Dans Entrez à Nouveau votre mot de passe : Votre Mot de passe de l'ul : Par exemple `JaimeBeaucoupLesTresLongMotDePasseParceQueCEstSecurise` ne mettez pas le même.
 
 Voilà vous pouvez maintenant vous connecter au wifi eduroam et la connexion devrait se faire toute seule.
 
@@ -103,8 +103,8 @@ Si vous n'arrivez pas à vous connecter cf [Problème Récurrents](#problèmes-r
 
  Cherchez Eduroam dans la liste des wifi disponibles
 
-Dans entrez votre identifiant utilisateur : "loginul"@etu.univ-lorraine.fr par exemple e1331u@etu.univ-lorraine.fr
-Dans entrez le mot de passe : Votre Mot de passe de l'ul : Par exemple JaimeBeaucoupLesTresLongMotDePasseParceQueCEstSecurise (ne mettez pas le même)
+Dans entrez votre identifiant utilisateur : `"loginul"@etu.univ-lorraine.fr` par exemple `e1331u@etu.univ-lorraine.fr`
+Dans entrez le mot de passe : Votre Mot de passe de l'ul : Par exemple `JaimeBeaucoupLesTresLongMotDePasseParceQueCEstSecurise` (ne mettez pas le même)
 
 ![Eduroam Windows](eduroam/eduroam_windows.png)
 
@@ -117,15 +117,15 @@ Si vous n'arrivez pas à vous connecter cf [Problème Récurrents](#problèmes-r
 ### Android
 
 Pour pouvoir vous connecter à Eduroam avec votre tel il faut:
-- Aller sur le Play Store et chercher "geteduroam"
+- Aller sur le Play Store et chercher `geteduroam`
 - Télécharger l'application
-- Lancer l'application et chercher "lorraine"
+- Lancer l'application et chercher `lorraine`
 
 <img src="eduroam/Eduraom_tel_1.png" alt="Eduraom_tel_1" width="400"/>
 
 - Cliquez sur Université de Lorraine
-- Dans identifiant entrez "loginul"@etu.univ-lorraine.fr ; Par exemple e1331u@etu.univ-lorraine.fr
-- Dans Mot de passe entrez Votre Mot de passe de l'ul ; Par exemple JaimeBeaucoupLesTresLongMotDePasseParceQueCEstSecurise (ne mettez pas le même)
+- Dans identifiant entrez `"loginul"@etu.univ-lorraine.fr` ; Par exemple `e1331u@etu.univ-lorraine.fr`
+- Dans Mot de passe entrez Votre Mot de passe de l'ul ; Par exemple `JaimeBeaucoupLesTresLongMotDePasseParceQueCEstSecurise` (ne mettez pas le même)
 <img src="eduroam/Eduraom_tel_2.png" alt="Eduraom_tel_2" width="400"/>
 
 - Vous pouvez maintenant ajouter le réseau et vous connecter à Eduroam sur votre téléphone
@@ -139,8 +139,8 @@ Si vous n'arrivez pas à vous connecter cf [Problème Récurrents](#problèmes-r
 <img src="eduroam/eduroam_iphone_1.png" alt="Apple Settings" width="400"/>
 
 - Cliquer sur Eduroam
-- Dans identifiant entrez "loginul"@etu.univ-lorraine.fr ; Par exemple e1331u@etu.univ-lorraine.fr
-- Dans Mot de passe entrez Votre Mot de passe de l'ul ; Par exemple JaimeBeaucoupLesTresLongMotDePasseParceQueCEstSecurise (ne mettez pas le même)
+- Dans identifiant entrez `"loginul"@etu.univ-lorraine.fr` ; Par exemple `e1331u@etu.univ-lorraine.fr`
+- Dans Mot de passe entrez Votre Mot de passe de l'ul ; Par exemple `JaimeBeaucoupLesTresLongMotDePasseParceQueCEstSecurise` (ne mettez pas le même)
 
 <img src="eduroam/eduroam_iphone_2.png" alt="Eduraom Connexion Apple" width="400"/>
 
