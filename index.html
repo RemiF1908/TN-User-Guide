@@ -503,7 +503,7 @@
                 }
 
                 const markdownText = await response.text();
-                const htmlContent = marked.parse(markdownText);
+                const htmlContent = marked.parse(markdownText, { headerIds: true });
 
                 contentDiv.innerHTML = htmlContent;
 
