@@ -16,43 +16,44 @@
 
 ### Linux
 
-- Pour connexion il faut :
-    - être connecté à internet avec autre chose (partage de connexion ou autre wifi ou connexion filaire par exemple)
-    - Ne pas être connecté un VPN sinon risque de bannissement
+- Pour se connecter il faut :
+    - être connecté à internet avec autre chose (partage de connexion, autre wifi ou connexion filaire par exemple)
+    - Ne pas être connecté un VPN sinon (risque de bannissement !)
 - Ensuite aller sur la page à https://cat.eduroam.org/
 
 ![image de la page eduroam](eduroam/eduroam_linux_1.png)
 
-Cliquer sur le gros bouton bleu
+Cliquez sur le gros bouton bleu
 
 ![eduroam bouton cliquer](eduroam/eduroam_linux_2.png)
 
-Cliquer ensuite sur Université de Lorraine 
+Cliquez ensuite sur Université de Lorraine 
 
 ![Université de Lorraine selectionné](eduroam/eduroam_linux_3.png)
 
 ![alt text](eduroam/eduroam_linux_4.png)
 
-Cliquer ensuite sur Eduroam
+Cliquez ensuite sur Eduroam
 
 Ceci devrait vous avoir téléchargé un fichier "eduroam-linux-eduroam_et_Personnels_Univ-Lorraine.py"
 
-Aller dans votre dossier de téléchargement et lancer le fichier avec python
+Allez dans votre dossier de téléchargement et lancez le fichier avec python
 
 Sur ubuntu:
 
-Lancer un terminal avec la racourci CTRL + ALT + T
+Lancez un terminal avec la racourci CTRL + ALT + T
 
 Sinon :
 
-Touche Windows puis terminal puis Enter
+Touche Windows puis terminal puis Entrer
 
 Vous avez lancé un terminal
 
 ![Terminal](eduroam/eduroam_linux_5.png)
 
-Vous pouvez maintenant executer cette commande
+Vous pouvez maintenant executez cette commande
 
+(dans le terminal, il faut faire ctrl+shift+v pour coller)
 
 Version Français:
 
@@ -67,17 +68,17 @@ python3 ~/Downloads/eduroam-linux-eduroam_et_Personnels_Univ-Lorraine.py
 
 ![Terminal + Command](eduroam/eduroam_linux_6.png)
 
-Une fois la commande lancée en appuyant sur Enter Vous arrivez sur cette fenêtre:
+Une fois la commande lancée en appuyant sur Entrer, vous arrivez sur cette fenêtre:
 
 ![Eduroam setup Windows 1](eduroam/eduroam_linux_7.png)
 
-Cliquer sur **ok** puis sur **oui**
+Cliquez sur **ok** puis sur **oui**
 
 ![Eduroam setup Windows 2](eduroam/eduroam_linux_8.png)
 
-Dans entrer votre identifiant utilisateur : "loginul"@etu.univ-lorraine.fr par exemple e1331u@etu.univ-lorraine.fr
-Dans entre le mot de passe : Votre Mot de passe de l'ul : Par exemple JaimeBeaucoupLesTresLongMotDePasseParceQueCEstSecurise ne mettez pas le même
-Dans Entrez à Nouveau votre mot de passe : Votre Mot de passe de l'ul : Par exemple JaimeBeaucoupLesTresLongMotDePasseParceQueCEstSecurise ne mettez pas le même
+Dans entrez votre identifiant utilisateur : "loginul"@etu.univ-lorraine.fr par exemple e1331u@etu.univ-lorraine.fr
+Dans entrez le mot de passe : Votre Mot de passe de l'ul : Par exemple JaimeBeaucoupLesTresLongMotDePasseParceQueCEstSecurise ne mettez pas le même.
+Dans Entrez à Nouveau votre mot de passe : Votre Mot de passe de l'ul : Par exemple JaimeBeaucoupLesTresLongMotDePasseParceQueCEstSecurise ne mettez pas le même.
 
 Voilà vous pouvez maintenant vous connecter au wifi eduroam et la connexion devrait se faire toute seule.
 
@@ -100,16 +101,16 @@ Si vous n'arrivez pas à vous connecter cf [Problème Récurrents](#problème-r�
 
 ### Windows
 
-Connecter vous à Eduroam:
+ Cherchez Eduroam dans la liste des wifi disponibles
 
-Dans entrer votre identifiant utilisateur : "loginul"@etu.univ-lorraine.fr par exemple e1331u@etu.univ-lorraine.fr
-Dans entre le mot de passe : Votre Mot de passe de l'ul : Par exemple JaimeBeaucoupLesTresLongMotDePasseParceQueCEstSecurise (ne mettez pas le même)
+Dans entrez votre identifiant utilisateur : "loginul"@etu.univ-lorraine.fr par exemple e1331u@etu.univ-lorraine.fr
+Dans entrez le mot de passe : Votre Mot de passe de l'ul : Par exemple JaimeBeaucoupLesTresLongMotDePasseParceQueCEstSecurise (ne mettez pas le même)
 
 ![Eduroam Windows](eduroam/eduroam_windows.png)
 
-Voilà vous pouvez maintenant vous connecté au wifi eduroam et la connexion devrait se faire tous seule.
+Voilà vous pouvez maintenant vous connecter au wifi eduroam et la connexion devrait se faire toute seule.
 
-Si vous n'arrivez pas à vous connecté cf [Problème Récurrents](#problème-récurrents)
+Si vous n'arrivez pas à vous connecter cf [Problème Récurrents](#problème-récurrents)
 
 ## Eduroam Version Tel
 
@@ -117,39 +118,39 @@ Si vous n'arrivez pas à vous connecté cf [Problème Récurrents](#problème-r�
 
 Pour pouvoir vous connecter à Eduroam avec votre tel il faut:
 - Aller sur le Play Store et chercher "geteduroam"
-- Téléchargé l'application
+- Télécharger l'application
 - Lancer l'application et chercher "lorraine"
 
 <img src="eduroam/Eduraom_tel_1.png" alt="Eduraom_tel_1" width="400"/>
 
-- Cliquer sur Université de Lorraine
-- Dans identifiant entrer "loginul"@etu.univ-lorraine.fr ; Par exemple e1331u@etu.univ-lorraine.fr
-- Dans Mot de passe entrer Votre Mot de passe de l'ul ; Par exemple JaimeBeaucoupLesTresLongMotDePasseParceQueCEstSecurise (ne mettez pas le même)
+- Cliquez sur Université de Lorraine
+- Dans identifiant entrez "loginul"@etu.univ-lorraine.fr ; Par exemple e1331u@etu.univ-lorraine.fr
+- Dans Mot de passe entrez Votre Mot de passe de l'ul ; Par exemple JaimeBeaucoupLesTresLongMotDePasseParceQueCEstSecurise (ne mettez pas le même)
 <img src="eduroam/Eduraom_tel_2.png" alt="Eduraom_tel_2" width="400"/>
 
 - Vous pouvez maintenant ajouter le réseau et vous connecter à Eduroam sur votre téléphone
 
 <img src="eduroam/Eduraom_tel_3.png" alt="Eduraom_tel_3" width="400"/>
 
-Si vous n'arrivez pas à vous connecté cf [Problème Récurrents](#problème-récurrents)
+Si vous n'arrivez pas à vous connecter cf [Problème Récurrents](#problème-récurrents)
 
 ### iOS
 
 <img src="eduroam/eduroam_iphone_1.png" alt="Apple Settings" width="400"/>
 
 - Cliquer sur Eduroam
-- Dans identifiant entrer "loginul"@etu.univ-lorraine.fr ; Par exemple e1331u@etu.univ-lorraine.fr
-- Dans Mot de passe entrer Votre Mot de passe de l'ul ; Par exemple JaimeBeaucoupLesTresLongMotDePasseParceQueCEstSecurise (ne mettez pas le même)
+- Dans identifiant entrez "loginul"@etu.univ-lorraine.fr ; Par exemple e1331u@etu.univ-lorraine.fr
+- Dans Mot de passe entrez Votre Mot de passe de l'ul ; Par exemple JaimeBeaucoupLesTresLongMotDePasseParceQueCEstSecurise (ne mettez pas le même)
 
 <img src="eduroam/eduroam_iphone_2.png" alt="Eduraom Connexion Apple" width="400"/>
 
-- Puis cliquer sur Se Fier
+- Puis cliquez sur "Se Fier"
 
 <img src="eduroam/eduroam_iphone_3.png" alt="Se fier Apple" width="400"/>
 
 - Vous êtes maintenant connecté à eduroam
 
-Si vous n'arrivez pas à vous connecté cf [Problème Récurrents](#problème-récurrents)
+Si vous n'arrivez pas à vous connecter cf [Problème Récurrents](#problème-récurrents)
 
 ### Configuration Manuel
 
@@ -161,7 +162,7 @@ Le certificat dans le screenshot appelé ca.pem est disponible dans l'installate
 
 ![Certificat Université de Lorraine Eduroam](eduroam/eduroam_ca.png)
 
-Certificat Actuelle mais qui ne marchera surement plus dans 1 an
+Certificat actuel mais qui ne marchera surement plus dans 1 an
 
 https://wiki.univ-lorraine.fr/bin/download/publique/dn/com/wifi/Archives%20-%20M%C3%A9thodes%20obsol%C3%A8tes/PersUL%20-%20Linux%20Ubuntu/WebHome/ca-ul.pem?rev=1.2
 
@@ -204,20 +205,20 @@ pr1Ggfl8g2jpe4+9LYeO4coBq54z+HKxsXDdqZMC5+l+7ID1AgA=
 -----END CERTIFICATE-----
 ```
 
-Si vous n'arrivez pas à vous connecté cf [Problème Récurrents](#problème-récurrents)
+Si vous n'arrivez pas à vous connecter cf [Problème Récurrents](#problème-récurrents)
 
 #### Lien utile
 
 https://wiki.univ-lorraine.fr/bin/view/publique/dn/com/wifi/Archives%20-%20M%C3%A9thodes%20obsol%C3%A8tes/PersUL%20-%20Linux%20Ubuntu/?srid=u5H5omph#HImportationdel27autoritE9decertification
 
-### Problème Récurrents
+### Problèmes Récurrents
 
-Si ça ne marche pas refaite l'opération mais en ***vérifiant très bien votre mot de passe*** J'ai déjà eu quelqu'un qui était persuader d'avoir mis le bon mot de passe.
-Vous pouvez copié votre mot de passe mis pour vous connecté à Arche
-Ou vous Pouvez utilisé un Password Manager comme BitWarden ou ProtonPass (Team Bitwarden)
+Si ça ne marche pas refaite l'opération mais en ***vérifiant très bien votre mot de passe*** J'ai déjà eu quelqu'un qui était persuadé d'avoir mis le bon mot de passe.
+Vous pouvez copier votre mot de passe mis pour vous connecté à Arche
+Ou vous pouvez utiliser un Password Manager comme BitWarden ou ProtonPass (Team Bitwarden)
 
-ça marche toujours pas:
+Si ça ne marche toujours pas:
 
-Vérifié que vous avez bien mis 2 'r' à lorraine. ça m'est déja arrivé 
+Vérifiez que vous avez bien mis 2 'r' à lorraine. ça m'est déja arrivé 
 
-Si vous êtes sûr d'avoir correctement fait de ces étapes mais vous n'avez toujours pas vous connecté vous êtes potentiellement bannie de L'université de Lorraine. Pas de panique, L'univ ban toute utilisation de VPN donc si vous avez utilisé un VPN comme NordVPN ou autre il faut aller vous Monsieur Bouthier étage 1 côté Aile nord pour vous demander de vous debannir.
+Si vous êtes sûr d'avoir correctement fait chaques étapes mais que vous n'êtes toujours pas connecté, vous êtes potentiellement banni du système informatique de L'université de Lorraine. Pas de panique, L'univ ban toute utilisation de VPN donc si vous avez utilisé un VPN comme NordVPN ou autre, il faut aller voir Monsieur Bouthier étage 1 côté Aile nord pour lui demander de vous debannir.
