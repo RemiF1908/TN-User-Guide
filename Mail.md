@@ -49,15 +49,15 @@ Pour envoyer des mails avec ta *@telecomnancy.eu*
 
 On clique sur la roue cranté en bas à droite
 ![Mail Thunderbird 1](mail/mail_thunderbird_1.png)
-On va dans account settings puis add mail account
+On va dans **account settings** puis **add mail account**
 ![Mail Thunderbird 2](mail/mail_thunderbird_2.png)
-On remplie ces creds
+On remplie ses credentials (informations d'identification)
 ![Mail Thunderbird 3](mail/mail_thunderbird_3.png)
-On clique sur configure manualy
+On clique sur **configure manualy**
 ![Mail Thunderbird 4](mail/mail_thunderbird_4.png)
 On remplie les paramètres
 ![Mail Thunderbird 5](mail/mail_thunderbird_5.png)
-On appuie sur test, et si c'est bon, on clique sur done
+On appuie sur **test**, et si c'est bon, on clique sur **done**
 ![Mail Thunderbird 6](mail/mail_thunderbird_6.png)
 
 ## Mail de L'UL
@@ -79,7 +79,7 @@ Si vous avez besoin de vous connecter voici les informations
 
 ![Mail UL](mail/mail_ul.png)
 
-prénom.nom@etu.univ-lorraine.fr
+prenom.nom@etu.univ-lorraine.fr
 
 #### IMAP
 imap.etu.univ-lorraine.fr
